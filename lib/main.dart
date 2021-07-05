@@ -548,22 +548,7 @@ class TabView extends StatelessWidget {
           height: 16,
         ),
         Column(
-          children: [
-            ProjectCard(
-              projectName: "Activo",
-              isSelected: false,
-              numberOfMembers: 5,
-              numberOfUncompletedTasks: 8,
-              color: Color(0xff0bba35),
-            ),
-            ProjectCard(
-              projectName: "Liquid",
-              isSelected: false,
-              numberOfMembers: 10,
-              numberOfUncompletedTasks: 7,
-              color: Color(0xff0bba35),
-            ),
-          ],
+          children: [],
         ),
         SizedBox(
           height: 32,
@@ -579,133 +564,9 @@ class TabView extends StatelessWidget {
           height: 16,
         ),
         Column(
-          children: [
-            ProjectCard(
-              projectName: "Doctio",
-              isSelected: false,
-              numberOfMembers: 4,
-              numberOfUncompletedTasks: 9,
-              color: Color(0xff42aad3),
-            ),
-          ],
+          children: [],
         ),
       ],
-    );
-  }
-}
-
-class ProjectCard extends StatelessWidget {
-  const ProjectCard({
-    Key key,
-    this.projectName,
-    this.isSelected,
-    this.numberOfUncompletedTasks,
-    this.numberOfMembers,
-    this.color,
-  }) : super(key: key);
-
-  final String projectName;
-  final bool isSelected;
-  final int numberOfUncompletedTasks;
-  final int numberOfMembers;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 12),
-      height: 60,
-      decoration: isSelected
-          ? BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(
-                color: color,
-                width: 1,
-              ),
-              color: Color(0xbba3a1a4).withOpacity(.1),
-            )
-          : BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Color(0xbba3a1a4).withOpacity(.1),
-            ),
-      child: Row(
-        children: [
-          Container(
-            width: 6,
-            height: 60,
-            decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(8),
-                bottomLeft: Radius.circular(8),
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 6,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  projectName,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  height: 3,
-                ),
-                Text(
-                  "$numberOfMembers members",
-                  style: TextStyle(
-                    color: Colors.white38,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Container(),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(
-              vertical: 4,
-              horizontal: 8,
-            ),
-            decoration: BoxDecoration(
-              color: color.withOpacity(.2),
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Text(
-              numberOfUncompletedTasks.toString(),
-              style: TextStyle(
-                color: color,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          InkWell(
-            child: Padding(
-              padding: const EdgeInsets.all(3),
-              child: Icon(
-                Icons.more_vert,
-                color: Color(0xbba3a1a4).withOpacity(.3),
-              ),
-            ),
-            onTap: () {},
-          ),
-          SizedBox(
-            width: 6,
-          ),
-        ],
-      ),
     );
   }
 }
